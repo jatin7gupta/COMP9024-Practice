@@ -1,15 +1,15 @@
 CC=dcc
 CFLAGS=-O3
 
-ex1: q1.c
+q1: q1.c
 	$(CC) -o q1.out q1.c
 	
 	
-ex2: q2.c
+q2: q2.c
 	$(CC) -o q2.out q2.c
 	
 	
-ex3: q3.c
+q3: q3.c
 	$(CC) -o q3.out q3.c
 	
 new:
@@ -18,7 +18,7 @@ new:
 	gedit ${f}.c
 	
 
-all: ex1 ex2 ex3
+all: q1 q2 q3
 
 clean:
 	-rm -f *.out
