@@ -12,6 +12,9 @@ q2: q2.c
 q3: q3.c
 	$(CC) -o q3.out q3.c
 	
+q4: q4.c
+	$(CC) -o q4.out q4.c
+	
 new:
 	touch ${f}.c
 	echo -e "/*\nProgram name: \nAuthor Name: Jatin Gupta\nWritten: $(LOGPATH) `date +'%y.%m.%d '`\n*/ \n\n#include <stdio.h>\n#include <stdlib.h>\n\n int main(void) { \n \t printf(\"hello world\"); \n \t return EXIT_SUCCESS; \n }"  > ${f}.c
