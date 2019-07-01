@@ -15,6 +15,15 @@ q3: q3.c
 q4: q4.c
 	$(CC) -o q4.out q4.c
 	
+blackbox: quack.h quack.c blackbox.c
+	$(CC) -o blackbox.out quack.c blackbox.c
+	
+jose: quack.h quack.c jose.c
+	$(CC) -o jose.out quack.c jose.c
+	
+match: quack.h quack.c matcher.c
+	$(CC) -o matcher.out quack.c matcher.c
+	
 new:
 	touch ${f}.c
 	echo -e "/*\nProgram name: \nAuthor Name: Jatin Gupta\nWritten(YY.MM.DD): $(LOGPATH) `date +'%y.%m.%d '`\n*/ \n\n#include <stdio.h>\n#include <stdlib.h>\n\nint main(void) {\n\tprintf(\"hello world\");\n\treturn EXIT_SUCCESS;\n}"  > ${f}.c
