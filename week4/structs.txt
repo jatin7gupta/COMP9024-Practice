@@ -1,0 +1,11 @@
+per1
+	studentid 3141592
+	age 25
+	gender M 
+	wam 72.625
+
+per2
+	studentid 2718281
+	age  24
+	gender F
+	wam 86.0

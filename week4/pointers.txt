@@ -1,0 +1,17 @@
+Given the definition
+
+Toggle line numbers
+int nums[12] = {5,3,6,2,7,4,9,1,8};
+and assuming that &nums[0] is 0xbabeface, what are the values of the following expressions?
+
+nums + 4 = 0xbabeface + 4 => 0xbabefad2
+
+*nums + 4 = 9
+
+*(nums + 4) = 7
+
+nums[4] = 7
+
+*(nums + *(nums + 3)) = 6
+
+nums[nums[2]] = 9
