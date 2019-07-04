@@ -12,8 +12,6 @@ q2: q2.c
 q3: q3.c
 	$(CC) -o q3.out q3.c
 	
-q4: q4.c
-	$(CC) -o q4.out q4.c
 	
 blackbox: quack.h quack.c blackbox.c
 	$(CC) -o blackbox.out quack.c blackbox.c
@@ -30,7 +28,7 @@ new:
 	gedit ${f}.c
 	
 
-all: q1 q2 q3
+all: q1 q2 q3 blackbox jose match
 
 clean:
 	-rm -f *.out
