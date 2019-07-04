@@ -16,5 +16,7 @@ int main(void) {
 	showQuack(q);
 	pop(q);
 	showQuack(q);
+	qush(77, q);
+	showQuack(q);
 	return EXIT_SUCCESS;
 }

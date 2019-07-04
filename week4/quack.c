@@ -107,3 +107,25 @@ void showQuack(Quack qs) {
    }
    return;
 }
+
+void qush(int data, Quack qs) {
+	Quack newnode;
+	Quack q;
+	if (qs == NULL) {
+      fprintf(stderr, "push: quack not initialised\n");
+   }
+   else {
+		newnode = malloc(sizeof(struct node));
+		newnode->data = data;
+		newnode->next = NULL;
+      	if (newnode == NULL) {
+         	fprintf(stderr, "push: no memory, aborting\n");
+         	exit(1);
+      	}
+      	q = qs;
+      	while (q->next != NULL) {
+      		q = q->next;
+      	}
+      	q->next = newnode;
+   }
+}
