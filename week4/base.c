@@ -10,16 +10,23 @@ Written(YY.MM.DD):  19.07.04
 
 int main(int argc, char *argv[]) {
 	int num;
+	int base;
 	Quack qs;
-	if (argc == 2 && sscanf(argv[1], "%d", &num) == 1 && num >= 0) {
+	if (argc == 3 && sscanf(argv[1], "%d", &num) == 1 && sscanf(argv[2], "%d", &base) == 1 && num >= 0 && base > 1) {
 		if (num != 0) {
 			qs = createQuack();
 			while (num > 0) {
-				push(num % 2, qs);
-				num = num/2;
+				push(num % base, qs);
+				num = num/base;
 			}
 			while (!isEmptyQuack(qs)) {
-				printf("%d", pop(qs));		
+				int poppedElement = pop(qs);
+				if (poppedElement > 9) {
+					printf("%c", 97 + (poppedElement - 10));
+				} 
+				else {
+					printf("%d", poppedElement);
+				}		
 			}
 			printf("\n");
 		} 
@@ -28,7 +35,7 @@ int main(int argc, char *argv[]) {
 		} 
 	} 
 	else {
-		fprintf(stderr, "Usage: ./base.out number\n");
+		fprintf(stderr, "Usage: ./base.out number base\n");
 		return EXIT_FAILURE;
 	}
 	

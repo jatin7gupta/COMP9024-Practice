@@ -1,28 +1,17 @@
 CC=dcc
 CFLAGS=-O3
 
-q1: q1.c
-	$(CC) -o q1.out q1.c
+base2: base2.c quack.h quack.c
+	$(CC) -o base2.out base2.c quack.c
 	
-	
-q2: q2.c
-	$(CC) -o q2.out q2.c
-	
-	
-q3: q3.c
-	$(CC) -o q3.out q3.c
-	
-q4: q4.c
-	$(CC) -o q4.out q4.c
-	
-blackbox: quack.h quack.c blackbox.c
-	$(CC) -o blackbox.out quack.c blackbox.c
+base: base.c quack.h quack.c
+	$(CC) -o base.out base.c quack.c
 	
 jose: quack.h quack.c jose.c
 	$(CC) -o jose.out quack.c jose.c
 	
-match: quack.h quack.c matcher.c
-	$(CC) -o matcher.out quack.c matcher.c
+qush: quack.h quack.c test.c
+	$(CC) -o test.out quack.c test.c
 	
 new:
 	touch ${f}.c
@@ -30,7 +19,7 @@ new:
 	gedit ${f}.c
 	
 
-all: q1 q2 q3
+all: base2 base jose qush
 
 clean:
 	-rm -f *.out

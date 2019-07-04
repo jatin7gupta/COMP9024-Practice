@@ -21,7 +21,7 @@ new:
 	gedit ${f}.c
 	
 
-all: q1 q2 q3
+all: q1 q2 q3 q4
 
 clean:
 	-rm -f *.out
