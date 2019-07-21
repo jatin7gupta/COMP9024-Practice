@@ -54,14 +54,14 @@ Graph freeGraph(Graph g) {
 		    printf("NULL graph\n");
 	} 
 	else {
-		for (int e = 0; e < g->nE; e++) { 
-            free(g->edges[e]);
-            g->edges[e] = NULL; 
+		for (int v = 0; v < g->nV; v++) { 
+            free(g->edges[v]);
+            g->edges[v] = NULL; 
         }
         free(g->edges);
         g->edges = NULL;
         free(g);
-        g = NULL 
+        g = NULL; 
 	}
    return g;
 }
@@ -105,9 +105,15 @@ void showE(Edge e) { // print an edge
 
 int isEdge(Graph g, Edge e) { // return 1 if edge found, otherwise 0
    int found = 0;
-
-   // code not shown
-
+   for (int v = 0; v < g->nV; v++){
+       for (int j = 0; j < g->nV; j++){
+       		if (e.v == *(g->edges[v]) && e.w == j) {
+       			if (g->edges[v][j] == 1) {
+       				found = 1;
+       			}
+       		}
+       }
+   }
    return found;
 }
 
