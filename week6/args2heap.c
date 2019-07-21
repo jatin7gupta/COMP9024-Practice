@@ -35,6 +35,13 @@ Written(YY.MM.DD):  19.07.20
 #include <stdio.h>
 #include <stdlib.h>
 
+void print(int *heap, int len) {
+	for (int j = 0; j<=len; j++) {
+		printf("%d ", heap[j]);
+	}
+	printf("\n");
+}
+
 // fix up the heap for the new element at index child
 int * fixUp(int *heap, int len) {
 	for (int i = len; i > 0; i--) {
@@ -46,10 +53,7 @@ int * fixUp(int *heap, int len) {
 		  child = child/2;             // become the parent
 		}
 	}
-	for (int j = 0; j<=len; j++) {
-			printf("%d ", heap[j]);
-		}
-		printf("\n");
+	//print(heap, len);
 	return heap;
 }
 
@@ -61,17 +65,19 @@ int main(int argc, char *argv[]) {
 			if(sscanf(argv[i], "%d", &arr[i]) == 1) {
 				if (i > 2) {
 					arr = fixUp(arr, i);
+					//print(arr, i);
 				}
-			}
-			else {
+			} else {
 				fprintf(stderr, "Usage: ./a.out integers ...\n");
+				free(arr);
+				arr = NULL;
 				return EXIT_FAILURE;
 			}
-			
 		}
-		//TODO: Cleanup
-	}
-	else {
+		print(arr, argc-1);
+		free(arr);
+		arr = NULL;
+	} else {
 		fprintf(stderr, "Usage: ./a.out integers ...\n");
 		return EXIT_FAILURE;
 	}

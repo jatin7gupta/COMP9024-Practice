@@ -61,18 +61,15 @@ int main(int argc, char *argv[]) {
 		if (sscanf(argv[1], "%d", &m) == 1 && sscanf(argv[2], "%d", &n) == 1) {
 			if (m >= 0 && n >= 0) {
 				printf("%d\n", A(m, n));
-			}
-			else {
+			} else {
 				fprintf(stderr, "Ackermanns function is not defined for negative integers\n");
 				return EXIT_FAILURE;
 			}
-		}
-		else {
+		} else {
 			fprintf(stderr, "Usage: ./a.out m n\n");
 			return EXIT_FAILURE;
 		}
-	}
-	else {
+	} else {
 		fprintf(stderr, "Usage: ./a.out m n\n");
 		return EXIT_FAILURE;
 	}
