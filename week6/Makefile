@@ -1,17 +1,20 @@
 CC=dcc
 CFLAGS=-O3
 
-base2: base2.c quack.h quack.c
-	$(CC) -o base2.out base2.c quack.c
+acker: ackermann.c 
+	$(CC) -o acker.out ackermann.c 
 	
-base: base.c quack.h quack.c
-	$(CC) -o base.out base.c quack.c
+args2heap: args2heap.c 
+	$(CC) -o args2heap.out args2heap.c 
 	
-jose: quack.h quack.c jose.c
-	$(CC) -o jose.out quack.c jose.c
+array2heap: array2heap.c
+	$(CC) -o array2heap.out array2heap.c
 	
-qush: quack.h quack.c test.c
-	$(CC) -o test.out quack.c test.c
+cHeap: cHeap.c
+	$(CC) -o cHeap.out cHeap.c 
+
+sumdig: sumdig.c
+	$(CC) -o sumdig.out sumdig.c 
 	
 new:
 	touch ${f}.c
@@ -19,7 +22,7 @@ new:
 	gedit ${f}.c
 	
 
-all: base2 base jose qush
+all: sumdig cHeap acker array2heap args2heap
 
 clean:
 	-rm -f *.out
