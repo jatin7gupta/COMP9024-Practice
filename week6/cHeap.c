@@ -52,24 +52,30 @@ int * fixUp(int *heap, int len) {
 	return heap;
 }
 
+void fixUp2(int *heap, int child) {
+	while (child > 1 && *(heap + child/2) < *(heap + child)) {
+	  int swap = *(heap + child);          // if parent < child ...
+	  *(heap + child) = *(heap + child/2); // swap them ...
+	  *(heap + child/2) = swap;            // and then ...
+	  child = child/2;                     // become the parent
+	}
+}
+
+
 int main(int argc, char *argv[]) {
 	if (argc > 1) {
 		int *arr = malloc(sizeof(int) * argc);
+		if (arr == NULL) {
+		    fprintf(stderr, "out of memory\n");
+		    return EXIT_FAILURE;
+    	}
 		arr[0] = 35; 
 		int index = 0;
 		for (int i = 1; i < argc; i++) {
-			char *c = argv[i];
-			int char_count = 0;
-			while (*c != '\0') {
-				char_count++;
-				c++;
-			}
-			if(char_count == 1 && isalnum(*argv[i])) {
+			if(*(argv[i]+1) == '\0' && isalnum(*argv[i])) {
 				index++;
 				arr[index] = (int)*argv[i];
-				if (index > 2) {
-					arr = fixUp(arr, index);
-				}
+				fixUp2(arr, index);
 			}
 		}
 		if (index > 1) {

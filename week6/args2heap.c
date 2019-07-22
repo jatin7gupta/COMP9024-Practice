@@ -37,7 +37,7 @@ Written(YY.MM.DD):  19.07.20
 
 void print(int *heap, int len) {
 	for (int j = 0; j<=len; j++) {
-		printf("%d ", heap[j]);
+		printf("%d ", *(heap + j));
 	}
 	printf("\n");
 }
@@ -46,27 +46,39 @@ void print(int *heap, int len) {
 int * fixUp(int *heap, int len) {
 	for (int i = len; i > 0; i--) {
 		int child = i;
-		while (child>1 && heap[child/2]<heap[child]) {
-		  int swap = heap[child];      // if parent < child ...
-		  heap[child] = heap[child/2]; // swap them ...
-		  heap[child/2] = swap;        // and then ...
-		  child = child/2;             // become the parent
+		while (child>1 && *(heap + child/2) < *(heap + child)) {
+		  int swap = *(heap + child);          // if parent < child ...
+		  *(heap + child) = *(heap + child/2); // swap them ...
+		  *(heap + child/2) = swap;            // and then ...
+		  child = child/2;                     // become the parent
 		}
 	}
 	//print(heap, len);
 	return heap;
 }
 
+
+void fixUp2(int *heap, int child) {
+	while (child > 1 && *(heap + child/2) < *(heap + child)) {
+	  int swap = *(heap + child);          // if parent < child ...
+	  *(heap + child) = *(heap + child/2); // swap them ...
+	  *(heap + child/2) = swap;            // and then ...
+	  child = child/2;                     // become the parent
+	}
+}
+
+
 int main(int argc, char *argv[]) {
 	if (argc > 1) {
 		int *arr = malloc(sizeof(int) * argc);
-		arr[0] = -999; 
+		if (arr == NULL) {
+           fprintf(stderr, "malloc error\n");
+           return EXIT_FAILURE;
+       	}
+		*arr = -999; 
 		for (int i = 1; i < argc; i++) {
-			if(sscanf(argv[i], "%d", &arr[i]) == 1) {
-				if (i > 2) {
-					arr = fixUp(arr, i);
-					//print(arr, i);
-				}
+			if(sscanf(argv[i], "%d", &*(arr + i)) == 1) {
+				fixUp2(arr, i);
 			} else {
 				fprintf(stderr, "Usage: ./a.out integers ...\n");
 				free(arr);

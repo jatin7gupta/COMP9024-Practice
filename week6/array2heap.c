@@ -46,8 +46,26 @@ void fixUp(int *heap, int len) {
 	return;
 }
 
+// Professor approach
+void fixUp2(int *heap, int len) {
+	for (int i = 1; i < len; i++) {
+		int child = i;
+		while (child>1 && heap[child/2]<heap[child]) {
+		  int swap = heap[child];      // if parent < child ...
+		  heap[child] = heap[child/2]; // swap them ...
+		  heap[child/2] = swap;        // and then ...
+		  child = child/2;             // become the parent
+		}
+	}
+	for (int j = 0; j<8; j++) {
+			printf("%d ", heap[j]);
+		}
+		printf("\n");
+	return;
+}
+
 int main(void) {
 	int heap[] = {-999,1,2,3,4,5,6,7};
-	fixUp(heap, 8);
+	fixUp2(heap, 8);
 	return EXIT_SUCCESS;
 }
