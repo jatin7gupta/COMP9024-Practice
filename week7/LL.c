@@ -51,14 +51,8 @@ void putHead(int n, List marker) { // insert at the head
 	else {
 	   List new = createList();   // re-use of createList to make a node
 	   new->data = n;             // overwrites INT_MAX with proper data
-	   List p = marker;
-	   if (p->next == NULL) { 
-		   p->next = new;         // append new to the head when it does not have any element    
-	   } else {
-		   List temp = p->next;   // save the first elemet in the temp variable
-		   p->next = new;         // assign new as the top head element
-		   new->next = temp;      // join the previous element to the new element
-	   }
+	   new->next = marker->next;  // link new node to old List head
+	   marker->next = new;        // new node is now List head 
 	}
 	return;
 }
