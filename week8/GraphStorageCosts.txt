@@ -1,0 +1,26 @@
+a.
+AM stores elements as ints hence
+it will store all the verties*vertices 2d array
+so 
+V*V*4 + 8*V for the pointers to the each row, is the value of the memory used for storing the AM version
+
+b.
+8*V for pointers to vertices
+for each edge, (4+8)
+and for each edge you store 2 times
+so 8*V + 2*12*E
+
+c.
+100*100*4 + 8*100 AM
+
+8*100 + 12*2*E = AL
+equating both the sides
+100*100*4 + 8*100 = 8*100 + 12*2*E
+100*100/6 = E
+~1667 = E
+if E is greater than 1667 then only AM is better choice than AL
+
+
+d.
+
+

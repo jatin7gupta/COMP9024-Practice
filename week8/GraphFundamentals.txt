@@ -1,0 +1,16 @@
+1
+a. a-b
+b. j,i,k
+c. any spanning tree must include all the vertices, m,g,h,i,k,j,a,b,c,d,e,f
+d. m
+e. smallest clique is the size of 1
+
+2
+a. m,g,h,i,k,j,a,b,c,d,e,f
+b. g,h,i,k,j,a,b,c,d,e,f,g
+c. m,g,h,i,k,j,a,b,c,d,e,f
+d. f/b
+e. f b c d e
+
+
+
